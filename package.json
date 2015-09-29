@@ -1,0 +1,32 @@
+{
+  "name": "hubot-ngram",
+  "description": "ngram text generator for hubot",
+  "version": "1.0.5",
+  "author": {
+    "name": "Sean Gibat",
+    "email": "sgibat@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "ngram"
+  ],
+  "dependencies": {
+    "coffee-script": "~1.6"
+  },
+  "main": "index.coffee",
+  "_npmVersion": "2.1.4",
+  "_nodeVersion": "0.10.32",
+  "_npmUser": {
+    "name": "seangibat",
+    "email": "sgibat@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "seangibat",
+      "email": "sgibat@gmail.com"
+    }
+  ],
+  "directories": {}
+}
