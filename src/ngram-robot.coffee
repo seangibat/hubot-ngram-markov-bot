@@ -1,9 +1,9 @@
-ngram = require('../script/ngram')
+ngram = require('simple-ngram-markov')
 
 record = (resp, robot) ->
-  if resp.envelope.user.corpus == undefined
-    resp.envelope.user.corpus = ngram.createCorpus()
-  ngram.add(resp.envelope.user.corpus, resp.match.toString())
+  if resp.envelope.user.model == undefined
+    resp.envelope.user.model = ngram.createModel()
+  ngram.addSentenceToModel(resp.envelope.user.model, resp.match.toString())
   robot.brain.save()
 
 generate = (resp, robot) ->
@@ -12,14 +12,14 @@ generate = (resp, robot) ->
   user = robot.brain.userForName name
 
   unless user
-    return resp.send "There is no corpus for #{name}"
+    return resp.send "There is no model for #{name}"
 
-  corpus = user.corpus
+  model = user.model
 
-  unless corpus
-    return resp.send "There is no corpus for #{name}"
+  unless model
+    return resp.send "There is no model for #{name}"
 
-  sentence = ngram.generate(corpus, num)
+  sentence = ngram.generateSentence(model, num)
   resp.send "#{user.name}: #{sentence}"
 
 module.exports = (robot) ->
@@ -29,5 +29,3 @@ module.exports = (robot) ->
 
   robot.hear /^!talklike\s(\w+)\s(\d+)/i, (resp) ->
     generate(resp, robot)
-
-

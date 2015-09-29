@@ -13,7 +13,8 @@
     "ngram"
   ],
   "dependencies": {
-    "coffee-script": "~1.6"
+    "coffee-script": "~1.6",
+    "simple-ngram-markov": "~1.0.4"
   },
   "main": "index.coffee",
   "_npmVersion": "2.1.4",
